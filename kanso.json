@@ -1,0 +1,25 @@
+{
+	"name": "relaxedbib",
+	"version": "0.0.1",
+	"description": "Taking care of your bibliography",
+	
+	"attachments": ["index.html"],
+	"modules": ["js"],
+	
+	"load": "js/latest_views",
+	
+	"handlebars": {
+		"all_partials": false,
+		"templates": "templates"
+	},
+	
+	"dependencies": {
+		"attachments": null,
+		"modules": null,
+		"properties": null,
+		"db": null,
+		"jquery": null,
+		"handlebars": null,
+		"handlebars-helpers": null
+	}
+}
