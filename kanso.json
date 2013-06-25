@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Taking care of your bibliography",
 	
-	"attachments": ["index.html"],
+	"attachments": ["index.html", "css"],
 	"modules": ["js"],
 	
 	"load": "js/latest_views",

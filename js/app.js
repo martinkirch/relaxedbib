@@ -1,8 +1,6 @@
-var $ = require('jquery');
-var latest = require('js/latest');
-
 exports.start = function() {
-	latest.start();
+	require('js/latest').start();
+	require('js/newDoc').start();
 };
 
 
