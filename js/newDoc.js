@@ -1,43 +1,42 @@
 var db = require('db').current();
 var $ = require('jquery');
 var handlebars = require('handlebars');
-var parser = require('js/BibTex-0.1.2');
+var parser = require('js/bibtex');
 
 var container = $('#newDocContainer');
 
 
 function save() {
-	var bib = new parser.BibTex();
-	bib.content = $('#newDocBib').val();
-	bib.parse();
+	var bib = parser.parse($('#newDocBib').val());
 	
-	if (bib.data.length > 1) {
-		alert("One at a time !");
-		return;
-	}
+	var errorHappened = false;	
 	
-	var doc = bib.data[0];
-	
-	var relaxedbib = {
-		modified_at: new Date().toJSON(),
-		type: doc.entryType
-		// TODO: tags, read later flag
-	}
-	
-	doc.relaxedbib = meta;
-	doc._id= doc.cite;
-	delete doc.entryType;
-	delete doc.cite;
-	
-	console.log(doc);
-	
-	db.saveDoc(doc, function(err, response) {
-		if (err) {
-			alert(err);
-		} else {
-			container.empty();
+	for (var directive in bib) {
+		for (var id in bib[directive]) {
+			var doc = bib[directive][id];
+		
+			doc.relaxedbib = {
+				modified_at: new Date().toJSON(),
+				type: directive
+				// TODO: tags, read later flag, attach PDF
+			};
+			
+			doc._id= db.encode(id);
+			
+			console.log(doc);
+			
+			db.saveDoc(doc, function(err, response) {
+				if (err) {
+					alert(err);
+					errorHappened = true;
+				}
+			});
 		}
-	});
+	}
+	
+	if (!errorHappened) {
+		container.empty();
+	}
 }
 
 // its counterpart doesn't exist : just call container.empty()
