@@ -5,7 +5,7 @@ var handlebars = require('handlebars');
 
 exports.start = function() {
 	
-	db.getView(designDoc, 'byYear', {include_docs:true}, function(err, data) {
+	db.getView(designDoc, 'latest', {descending:true, include_docs:true}, function(err, data) {
 		if(err) { return alert(err);}
 		
 		$('#latest').html(handlebars.templates['bibList.html'](data));

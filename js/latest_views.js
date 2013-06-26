@@ -1,7 +1,7 @@
 exports.views = {
-	byYear: {
+	latest: {
 		map: function(doc) {
-			emit(doc.year, null);
+			emit(doc.relaxedbib.modified_at, null);
 		}
 	}	
 };
