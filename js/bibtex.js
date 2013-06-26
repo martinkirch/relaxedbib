@@ -34,7 +34,7 @@ exports.parse = function(bib) {
 function BibtexParser(inputText) {
   this.input = inputText;
   this.pos = 0;
-  this.entries = {};
+  this.entries = new Array();
   this.strings = {
       JAN: "January",
       FEB: "February",
@@ -153,7 +153,7 @@ function BibtexParser(inputText) {
     return values.join("");
   }
 
-  this.key = function() {
+  this.key = function(keepCase) {
     var start = this.pos;
     while(true) {
       if (this.pos == this.input.length) {
@@ -163,7 +163,8 @@ function BibtexParser(inputText) {
       if (this.input[this.pos].match("[a-zA-Z0-9_:\\./-]")) {
         this.pos++
       } else {
-        return this.input.substring(start, this.pos).toLowerCase();
+        var key = this.input.substring(start, this.pos);
+        return keepCase ? key : key.toLowerCase();
       }
     }
   }
@@ -194,7 +195,7 @@ function BibtexParser(inputText) {
   }
 
   this.entry_body = function() {
-    var id = this.key();
+    var id = this.key(true);
     this.currentEntry = new Object();    
     this.match(",");
     this.key_value_list();
@@ -233,10 +234,12 @@ function BibtexParser(inputText) {
     } else if (d == "comment") {
       this.comment();
     } else {
-      if (!this.entries.hasOwnProperty(d)) {
-        this.entries[d] = {};
-      }
-      this.entries[d][this.entry()] = this.currentEntry;
+      var entryId = this.entry()
+      this.entries.push({
+        id: entryId,
+        type: d,
+        entry: this.currentEntry
+      });
     }
     this.match("}");
   }
