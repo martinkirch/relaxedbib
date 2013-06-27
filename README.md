@@ -1,4 +1,13 @@
 
+# TODO
+
+doc edition
+
+then, PDF uploading on edition (easier to debug)
+
+attachment on new doc : only allow when there's only one entry !
+
+
 
 # Notes on security
 
@@ -10,4 +19,9 @@ http://kan.so/docs/The_session_module
 
 http://kan.so/packages/details/db
 http://kan.so/docs/Handlebars
+
+# API
+
+https://wiki.apache.org/couchdb/Complete_HTTP_API_Reference
+
 

@@ -6,21 +6,16 @@ var parser = require('js/bibtex');
 var container = $('#newDocContainer');
 
 var closeAfterUploading = true;
+var meta = {};
 
 function upload(chain) {
 	var item = chain.pop();
 	if (item) {
 		var doc = item.entry;
 		doc._id = db.encode(item.id);
-		doc.relaxedbib = {
-			modified_at: new Date().toJSON(),
-			type: item.type
-			// TODO: tags, read later flag, 
-			// do NOT attach PDF right now : if there's many entries which one owns the file ?
-			// rather redirect to "latest" and allow update&upload
-			
-			// or only allow when there's only one entry !
-		};
+		
+		meta.type = item.type;
+		doc.relaxedbib = meta;
 		
 		db.saveDoc(doc, function(err, response) {
 			if (err) {
@@ -41,6 +36,20 @@ function upload(chain) {
 
 function save() {
 	var bibChain = parser.parse($('#newDocBib').val());
+	
+	meta.modified_at = new Date().toJSON();
+	meta.read_later = $('#newDocReadLater').is(':checked');
+	meta.comments = $('#newDocComment').val().trim();
+	meta.tags = [];
+	
+	var tags = $("#newDocTags").val().trim().split(',');
+	for (var i in tags) {
+		var tag = tags[i].trim();
+		if (tag.length > 0) {
+			meta.tags.push(tag);
+		}
+	}
+	
 	var closeAfterUploading = true;
 	upload(bibChain);
 }
