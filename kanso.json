@@ -6,7 +6,7 @@
 	"attachments": ["index.html", "css"],
 	"modules": ["js"],
 	
-	"load": "js/latest_views",
+	"load": "js/views",
 	
 	"handlebars": {
 		"all_partials": false,
