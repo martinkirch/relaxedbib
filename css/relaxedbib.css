@@ -44,6 +44,16 @@
 	cursor: pointer;
 }
 
+#tagListContainer {
+	float: right;
+	border-left: 2px dotted #555;
+	padding:0.5em;
+}
+
+#mainContainer {
+	overflow: auto;
+}
+
 #topButtons li {
 	display: inline;
 	cursor: pointer;
