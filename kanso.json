@@ -6,7 +6,7 @@
 	"attachments": ["index.html", "css"],
 	"modules": ["js"],
 	
-	"load": "js/views",
+	"load": "js/server_side",
 	
 	"handlebars": {
 		"all_partials": false,
