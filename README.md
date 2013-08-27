@@ -4,9 +4,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-reverse document format : relaxedbib have its own fields in root object, bib 
-entries belong to a "bib" sub-object.
-
 Understanding bibs:
  - There's always author, year and title
  - @inproceedings usually have a "crossref" field

@@ -5,17 +5,13 @@ var parser = require('js/bibtex');
 
 var container = $('#newDocContainer');
 
-var closeAfterUploading = true;
-var meta = {};
-
-function upload(chain) {
+function upload(chain, baseDoc, closeAfterUploading) {
 	var item = chain.pop();
 	if (item) {
-		var doc = item.entry;
+		var doc = jQuery.extend({}, baseDoc);
+		doc.bib = item.entry;
 		doc._id = db.encode(item.id);
-		
-		meta.type = item.type;
-		doc.relaxedbib = meta;
+		doc.type = item.type;
 		
 		db.saveDoc(doc, function(err, response) {
 			if (err) {
@@ -26,7 +22,7 @@ function upload(chain) {
 					closeAfterUploading = false;
 				}
 			}
-			upload(chain);
+			upload(chain, baseDoc, closeAfterUploading);
 		});
 		
 	} else if (closeAfterUploading){
@@ -37,21 +33,22 @@ function upload(chain) {
 function save() {
 	var bibChain = parser.parse($('#newDocBib').val());
 	
-	meta.modified_at = new Date().toJSON();
-	meta.read_later = $('#newDocReadLater').is(':checked');
-	meta.comments = $('#newDocComment').val().trim();
-	meta.tags = [];
+	var doc = {};
+	doc.created_at = new Date().toJSON();
+	doc.modified_at = doc.created_at;
+	doc.read_later = $('#newDocReadLater').is(':checked');
+	doc.comments = $('#newDocComment').val().trim();
+	doc.tags = [];
 	
 	var tags = $("#newDocTags").val().trim().split(',');
 	for (var i in tags) {
 		var tag = tags[i].trim();
 		if (tag.length > 0) {
-			meta.tags.push(tag);
+			doc.tags.push(tag);
 		}
 	}
 	
-	var closeAfterUploading = true;
-	upload(bibChain);
+	upload(bibChain, doc, true);
 }
 
 // its counterpart doesn't exist : just call container.empty()

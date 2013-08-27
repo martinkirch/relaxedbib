@@ -1,14 +1,14 @@
 exports.views = {
 	latest: {
 		map: function(doc) {
-			emit(doc.relaxedbib.modified_at, null);
+			emit(doc.modified_at, null);
 		}
 	},
 	
 	readLater: {
 		map: function(doc) {
-			if (doc.relaxedbib.read_later) {
-				emit(doc.relaxedbib.modified_at, null);
+			if (doc.read_later) {
+				emit(doc.modified_at, null);
 			}
 		}
 	},
@@ -17,8 +17,8 @@ exports.views = {
 	// use reduce=false, include_docs=true,key=XYZ to fetch docs by tag
 	byTag: {
 		map: function(doc) {
-			if (doc.relaxedbib.tags) {
-				doc.relaxedbib.tags.forEach(function(tag) {
+			if (doc.tags) {
+				doc.tags.forEach(function(tag) {
 					emit(tag, null);
 				});
 			}
