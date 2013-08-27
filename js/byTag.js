@@ -2,6 +2,7 @@ var db = require('db').current();
 var designDoc = require('db').guessCurrent().design_doc;
 var $ = require('jquery');
 var handlebars = require('handlebars');
+var bibList = require('js/bibList');
 
 function showByTag(tag) {
 	return function(event) {
@@ -17,8 +18,7 @@ function showByTag(tag) {
 			if(err) {
 				return alert(err);
 			} else {
-				$('#bibList').html(handlebars.templates['bibList.html'](data));
-				$('#bibListTitle').text("Documents tagged \""+tag+"\"");
+				bibList.showView(data, "Documents tagged \""+tag+"\"");
 			}
 		});
 	}
