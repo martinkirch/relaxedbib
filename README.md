@@ -5,14 +5,19 @@ This is a work in progress, placed on github for backup purpose only.
 ### TODO
 
 Understanding bibs:
- - There's always author, year and title
- - @inproceedings usually have a "crossref" field
 
-bibtex parser : all fields may go to a filter like someText.replace(/(\r\n|\n|\r|\s)+/gm," ");
+* There's always author, year and title
+* @inproceedings usually have a "crossref" field
 
-doc edition
+a better doc listing + doc details display... and doc edition with a fancy contenteditable
+KISS: save doc as soon as an entry loses focus
+
 then, PDF uploading on edition (easier to debug)
-attachment on new doc : only allow when there's only one entry !
+
+* when no PDF attached, show a icon suggesting you should drop a file there
+* otherwise, show a link to the PDF, that may also handle an update upload
+
+find by author, by year
 
 ### useful references
 

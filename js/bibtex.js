@@ -150,7 +150,7 @@ function BibtexParser(inputText) {
       this.match("#");
       values.push(this.single_value());
     }
-    return values.join("");
+    return values.join("").replace(/(\r\n|\n|\r|\s)+/gm," ");
   }
 
   this.key = function(keepCase) {
