@@ -9,7 +9,12 @@ Understanding bibs:
 * There's always author, year and title
 * @inproceedings usually have a "crossref" field
 
-a better doc listing + doc details display... and doc edition with a fancy contenteditable
+a better doc listing
+
+"Generate bibtex" button, per document
+and "Generate bibtex" button for all listed documents
+
+doc details display... and doc edition with a fancy contenteditable
 KISS: save doc as soon as an entry loses focus
 
 then, PDF uploading on edition (easier to debug)

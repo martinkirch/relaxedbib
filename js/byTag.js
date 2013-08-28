@@ -24,6 +24,7 @@ function showByTag(tag) {
 	}
 }
 
+exports.getTagClickCallback = showByTag;
 
 exports.start = function() {
 	db.getView(designDoc, 'byTag', {group:true}, function(err, data) {

@@ -1,3 +1,14 @@
 {{#each rows}}
-	<li>{{doc._id}} ({{doc.bib.year}})</li>
+	<li id="{{doc._id}}">
+		<span class="docTitle">{{doc.bib.title}}</span>
+		<span class="docYear">{{doc.bib.year}}</span>
+		<span class="docAuthor">{{doc.bib.author}}</span>
+		<ul class="docTags">Tagged 
+			{{#each doc.tags}}
+				<li><a class="docTag" href="#">{{this}}</a></li>
+			{{/each}}
+		</ul>
+	</li>
+{{else}}
+	<li class="empty">No entry yet... Go back working on your bibliography !</li>
 {{/each}}

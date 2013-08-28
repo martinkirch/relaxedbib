@@ -72,3 +72,41 @@ h1,h2,h3,h4 {
 	background: blue;
 }
 
+#bibListTitle {
+	border-bottom: 1px solid #444;
+}
+
+#bibList li {
+	list-style: none;
+}
+
+#bibList > li {
+	margin-bottom: 1em;
+	padding: 0.2em;
+}
+
+#bibList > li:nth-child(2n) {
+	background: #EEE;
+}
+
+#bibList .docTitle {
+	font-weight: bold;
+}
+
+#bibList .docAuthor {
+	font-style: italic;
+	display: block;
+}
+
+#bibList .docTags li {
+	display: inline;
+}
+
+#bibList .docYear:before{
+	content:"(";
+}
+
+#bibList .docYear:after{
+	content:")";
+}
+
