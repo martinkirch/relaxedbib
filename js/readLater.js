@@ -8,7 +8,7 @@ exports.show = function() {
 	db.getView(designDoc, 'readLater', {include_docs:true}, function(err, data) {
 		if(err) { return alert(err);}
 		
-		bibList.showView(data, "To read again");
+		bibList.showView(data, "Reading list");
 	});
 }
 

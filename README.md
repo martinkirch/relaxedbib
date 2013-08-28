@@ -1,28 +1,28 @@
 This is a work in progress, placed on github for backup purpose only.
 
-
-
-### TODO
-
-Understanding bibs:
+### notes about the bib format
 
 * There's always author, year and title
 * @inproceedings usually have a "crossref" field
 
-a better doc listing
+### TODO
+
+a "+" button that gives details about a paper : show the comments !
+
+Flag documents marked as "read later" : css class and a special button "OK, red it"
+
+PDF uploading :
+
+* when no PDF attached, show a icon suggesting you should drop a file there
+* otherwise, show a link to the PDF, that may also handle an update upload
+
+find by author, by year
 
 "Generate bibtex" button, per document
 and "Generate bibtex" button for all listed documents
 
 doc details display... and doc edition with a fancy contenteditable
 KISS: save doc as soon as an entry loses focus
-
-then, PDF uploading on edition (easier to debug)
-
-* when no PDF attached, show a icon suggesting you should drop a file there
-* otherwise, show a link to the PDF, that may also handle an update upload
-
-find by author, by year
 
 ### useful references
 
