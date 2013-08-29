@@ -7,8 +7,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-Flag documents marked as "read later" : css class and a special button "OK, red it"
-
 PDF uploading :
 
 * when no PDF attached, show a icon suggesting you should drop a file there

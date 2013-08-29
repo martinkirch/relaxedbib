@@ -90,6 +90,10 @@ h1,h2,h3,h4 {
 	background: #F0F0F0;
 }
 
+#bibList > li.readLater {
+	background: #FFE356;
+}
+
 #bibList .docTitle {
 	font-weight: bold;
 }
