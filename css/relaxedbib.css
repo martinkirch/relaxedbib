@@ -82,11 +82,12 @@ h1,h2,h3,h4 {
 
 #bibList > li {
 	margin-bottom: 1em;
-	padding: 0.2em;
+	padding: 0.3em;
+	cursor: pointer;
 }
 
 #bibList > li:nth-child(2n) {
-	background: #EEE;
+	background: #F0F0F0;
 }
 
 #bibList .docTitle {

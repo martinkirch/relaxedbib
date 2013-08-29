@@ -9,5 +9,10 @@ exports.showView = function(data, title) {
 	$('#bibList').find('.docTag').each(function(i,elem){
 		$(elem).click(getTagClickCallback($(elem).text()));
 	});
+	
+	$('#bibList').children('li').click(function(event) {
+		event.preventDefault();
+		$(this).find('.docDetails').toggle('fast');
+	});
 };
 

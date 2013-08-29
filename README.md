@@ -7,8 +7,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-a "+" button that gives details about a paper : show the comments !
-
 Flag documents marked as "read later" : css class and a special button "OK, red it"
 
 PDF uploading :
