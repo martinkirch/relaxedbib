@@ -36,7 +36,6 @@ function save() {
 	var doc = {};
 	doc.created_at = new Date().toJSON();
 	doc.modified_at = doc.created_at;
-	doc.read_later = $('#newDocReadLater').is(':checked');
 	doc.comments = $('#newDocComment').val().trim();
 	doc.tags = [];
 	
@@ -46,6 +45,10 @@ function save() {
 		if (tag.length > 0) {
 			doc.tags.push(tag);
 		}
+	}
+	
+	if ($('#newDocReadLater').is(':checked')) {
+		doc.read_later = true;
 	}
 	
 	upload(bibChain, doc, true);

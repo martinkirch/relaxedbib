@@ -7,10 +7,9 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-PDF uploading :
+fix PDF uploading
 
-* when no PDF attached, show a icon suggesting you should drop a file there
-* otherwise, show a link to the PDF, that may also handle an update upload
+fix "Read later" - check the doc update method.
 
 find by author, by year
 

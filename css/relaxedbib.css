@@ -115,3 +115,7 @@ h1,h2,h3,h4 {
 	content:")";
 }
 
+#bibList .draggedOver {
+	border: 2px dotted #555;
+}
+

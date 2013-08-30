@@ -1,3 +1,6 @@
+{{#if doc._attachments}}
+	<a class="docDownload" target="_blank" href="../../{{doc._id}}/{{doc._id}}.pdf">Read</a>
+{{/if}}
 <span class="docTitle">{{doc.bib.title}}</span>
 <span class="docYear">{{doc.bib.year}}</span>
 {{#if doc.read_later}}

@@ -3,6 +3,7 @@ exports.start = function() {
 	require('js/newDoc').start();
 	require('js/readLater').start();
 	require('js/byTag').start();
+	require('js/fileDropper').start();
 };
 
 
