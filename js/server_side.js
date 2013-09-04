@@ -24,6 +24,15 @@ exports.views = {
 			}
 		},
 		reduce: function(keys, values) { return null; }
+	},
+	
+	byYear: {
+		map: function(doc) {
+			if (doc.bib.year) {
+				emit(doc.bib.year, null);
+			}
+		},
+		reduce: function(keys, values) { return null; }
 	}
 };
 
