@@ -10,6 +10,7 @@ function upload(chain, baseDoc, closeAfterUploading) {
 	if (item) {
 		var doc = jQuery.extend({}, baseDoc);
 		doc.bib = item.entry;
+		doc.bib.author = doc.bib.author.split("and").map(function(i){return i.trim();})
 		doc._id = db.encode(item.id);
 		doc.type = item.type;
 		
