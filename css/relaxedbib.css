@@ -21,8 +21,8 @@ h1,h2,h3,h4 {
 	position: absolute;
 	top: 0;
 	left: 50%;
-	width: 30em;
-	margin: 2em -15em;
+	margin: 3em -25em;
+	width: 50em;
 	padding: 1em;
 	border: 0.1em solid #111;
 	border-radius: 0.2em;
@@ -40,6 +40,7 @@ h1,h2,h3,h4 {
 	font-family: sans-serif;
 	font-weight: bold;
 	padding: 0 0.5em;
+	border-radius:4px;
 }
 
 .dialogbox .close:hover {

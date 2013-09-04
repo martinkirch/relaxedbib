@@ -68,7 +68,12 @@ function show() {
 	$('#btnSaveNewDoc').click(function(event) {
 		event.preventDefault();
 		save();
-	})
+	});
+	
+	$('#newDocPutTemplate').click(function(event) {
+		event.preventDefault();
+		$('#newDocBib').val("@inproceedings{IDENTIFIER,\nauthor = {Names},\ntitle = {towardsABetterBib},\nyear = {2007}\n}");
+	});
 }
 
 exports.start = function() {
