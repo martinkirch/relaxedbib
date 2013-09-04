@@ -1,3 +1,11 @@
+a:hover {
+	text-decoration: none;
+}
+
+h1 {
+	margin-top: 0;
+}
+
 h1,h2,h3,h4 {
 	font-family: sans-serif;
 }
@@ -53,28 +61,19 @@ h1,h2,h3,h4 {
 	cursor: pointer;
 }
 
-#tagListContainer {
-	float: right;
-	border-left: 2px dotted #555;
-	padding:0.5em;
+#searchPanel {
+	float: left;
+	border-right: 2px dotted #555;
+	padding: 1em;
 }
 
 #mainContainer {
+	padding: 1em;
 	overflow: auto;
 }
 
-#topButtons li {
-	display: inline;
-	cursor: pointer;
-	text-decoration: underline;
-	color: blue;
+#topButtons {
 	font-weight: bold;
-}
-
-#topButtons li:hover {
-	text-decoration: none;
-	color: white;
-	background: blue;
 }
 
 #bibListTitle {
