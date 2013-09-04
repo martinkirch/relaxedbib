@@ -145,3 +145,7 @@ a.draggedOver {
 	background-size: 2px 2px;
 }
 
+a.docExpand {
+	text-decoration: none;
+}
+

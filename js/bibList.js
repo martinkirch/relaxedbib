@@ -17,7 +17,6 @@ function addBibEntry(row) {
 	}
 	
 	container.children('.docExpand').click(function(event) {
-		event.preventDefault();
 		container.find('.docDetails').toggle('fast');
 	});
 }
