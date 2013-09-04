@@ -83,7 +83,6 @@ h1,h2,h3,h4 {
 #bibList > li {
 	margin-bottom: 1em;
 	padding: 0.3em;
-	cursor: pointer;
 }
 
 #bibList > li:nth-child(2n) {
@@ -115,7 +114,33 @@ h1,h2,h3,h4 {
 	content:")";
 }
 
-#bibList .draggedOver {
-	border: 2px dotted #555;
+.docContainer {
+	overflow: auto;
+}
+
+#bibList .bigLeftButton {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-family: sans-serif;
+	float: left;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	margin-right: 0.5em;
+}
+
+#bibList .bigLeftButton:hover {
+	background: #729FCF;
+	cursor: pointer;
+}
+
+/* this is why "dropZone" elems have their text in a <span> ! */
+.dropZone > * {
+	pointer-events: none;
+}
+
+a.draggedOver {
+	background-image: linear-gradient(rgba(255, 255, 255, .6) 50%, transparent 50%, transparent);
+	background-size: 2px 2px;
 }
 

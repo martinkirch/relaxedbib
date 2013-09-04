@@ -1,17 +1,22 @@
 {{#if doc._attachments}}
-	<a class="docDownload" target="_blank" href="../../{{doc._id}}/{{doc._id}}.pdf">Read</a>
+	<a class="dropZone bigLeftButton" target="_blank" href="../../{{doc._id}}/{{doc._id}}.pdf"><span>PDF</span></a>
+{{else}}
+	<a class="dropZone bigLeftButton" target="_blank" alt="Drop PDF file here !" title="Drop PDF file here !"><span>PDF</span></a>
 {{/if}}
-<span class="docTitle">{{doc.bib.title}}</span>
-<span class="docYear">{{doc.bib.year}}</span>
-{{#if doc.read_later}}
-	<a class="markAsRead" href="#">Mark as read</a>
-{{/if}}
-<span class="docAuthor">{{doc.bib.author}}</span>
-<ul class="docTags">Tagged 
-	{{#each doc.tags}}
-		<li><a class="docTag" href="#">{{this}}</a></li>
-	{{/each}}
-</ul>
-<div class="docDetails" style="display:none;">
-	<span class="docComments">{{doc.comments}}</span>
+<div class="docExpand bigLeftButton">▶</div>
+<div class="docContainer">
+	<span class="docTitle">{{doc.bib.title}}</span>
+	<span class="docYear">{{doc.bib.year}}</span>
+	{{#if doc.read_later}}
+		<a class="markAsRead" href="#">Mark as read</a>
+	{{/if}}
+	<span class="docAuthor">{{doc.bib.author}}</span>
+	<ul class="docTags">Tagged 
+		{{#each doc.tags}}
+			<li><a class="docTag" href="#">{{this}}</a></li>
+		{{/each}}
+	</ul>
+	<div class="docDetails" style="display:none;">
+		<span class="docComments">{{doc.comments}}</span>
+	</div>
 </div>

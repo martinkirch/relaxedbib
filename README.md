@@ -7,10 +7,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-fix PDF uploading
-
-fix "Read later" - check the doc update method.
-
 find by author, by year
 
 "Generate bibtex" button, per document
@@ -19,6 +15,8 @@ and "Generate bibtex" button for all listed documents
 doc details display... and doc edition with a fancy contenteditable
 KISS: save doc as soon as an entry loses focus
 
+a validation doc that auto-updates "modified_at"
+
 ### useful references
 
 note: kanso's db module doesn't like vhosts (nor URL rewriting)
@@ -26,5 +24,4 @@ note: kanso's db module doesn't like vhosts (nor URL rewriting)
 http://kan.so/packages/details/db
 http://kan.so/docs/Handlebars
 https://wiki.apache.org/couchdb/Complete_HTTP_API_Reference
-
 

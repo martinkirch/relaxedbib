@@ -16,9 +16,9 @@ function addBibEntry(row) {
 		initMarkAsRead(container.find('.markAsRead'), container);
 	}
 	
-	container.click(function(event) {
+	container.children('.docExpand').click(function(event) {
 		event.preventDefault();
-		$(this).find('.docDetails').toggle('fast');
+		container.find('.docDetails').toggle('fast');
 	});
 }
 

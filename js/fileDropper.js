@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var db = require('db').current();
 var fileReader = new FileReader();
 
 var targetElem = null;
@@ -17,14 +18,14 @@ onUploadedSuccess = function(response) {
 };
 
 onUploadedError = function(xhr, status, error) {
-	$.jGrowl("Can't upload file to "+uri+": "+status+" - "+error, {group:'error'});
+	$.jGrowl("Can't upload file : "+status+" - "+error, {group:'error'});
 	targetElem = null;
 };
 
 fileReader.onloadend = function(loadedEvent) {
 	if (loadedEvent.target.readyState == FileReader.DONE) {
 		var doc = targetElem.data('doc');
-		var uri = db.url + doc._id + '/' + doc._id + '.pdf';
+		var uri = db.url + '/' + doc._id + '/' + doc._id + '.pdf?rev=' + doc._rev;
 		
 		$.ajax({
 			url: uri,
@@ -39,28 +40,38 @@ fileReader.onloadend = function(loadedEvent) {
 };
 
 
+function isDraggedFiles(dataTransfer) {
+	var t = dataTransfer.types;
+	if (t.indexOf) { // chrome
+		return t.indexOf('Files') >= 0 || dataTransfer.files != null;
+	} else if (t.contains) { // firefox
+		return t.contains('Files') || dataTransfer.files != null;
+	}
+}
+
+
 exports.start = function() {
-	$(document).on('dragenter', '.bibEntry', function(e) {
+	$(document).on('dragenter', '.dropZone', function(e) {
 		var dt = e.originalEvent.dataTransfer;
-	
-		if (dt.files && dt.files.length == 1) {
+		
+		if (isDraggedFiles(dt)) {
 			$(this).addClass('draggedOver');
 			e.stopPropagation();
 			e.preventDefault();
 		}
 	
-	}).on('dragover', '.bibEntry', function(e) {
+	}).on('dragover', '.dropZone', function(e) {
 		var dt = e.originalEvent.dataTransfer;
 		
-		if (dt.files && dt.files.length == 1) {
+		if (isDraggedFiles(dt)) {
 			e.stopPropagation();
 			e.preventDefault();
 		}
 	
-	}).on('dragleave', '.bibEntry', function(e) {
+	}).on('dragleave', '.dropZone', function(e) {
 		$(this).removeClass('draggedOver');
 	
-	}).on('drop', '.bibEntry', function(e) {	
+	}).on('drop', '.dropZone', function(e) {	
 		e.stopPropagation();
 		e.preventDefault();
 		$(this).removeClass('draggedOver');
@@ -69,7 +80,7 @@ exports.start = function() {
 	
 		if (dt.files && dt.files.length == 1) {
 			var droppedFile = dt.files[0];
-			targetElem = $(this);
+			targetElem = $(this).closest('.bibEntry');
 			fileReader.readAsArrayBuffer(droppedFile);
 		}
 	});
