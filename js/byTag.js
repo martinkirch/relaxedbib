@@ -31,16 +31,10 @@ exports.start = function() {
 		if(err) {
 			return alert(err);
 		} else {
-			var tagList = $('#tagList');
-			for (var i in data.rows) {
-				var tag = data.rows[i].key;
-				var li = $('<li>');
-				$('<a>').attr('href','#')
-					.text(tag)
-					.click(showByTag(tag))
-					.appendTo(li);
-				li.appendTo(tagList);
-			}
+			$('#byTag').html(handlebars.templates['byTag.html'](data))
+				.find('a').each(function(i,e) {
+					$(e).click(showByTag($(e).text()));
+				});
 		}
 	});
 }
