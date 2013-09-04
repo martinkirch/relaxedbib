@@ -1,7 +1,10 @@
 var handlebars = require('handlebars');
 var $ = require('jquery');
 var initMarkAsRead = require('js/readLater').markAsReadButton;
-var getTagClickCallback = require('js/byTag').getTagClickCallback;
+var showByTag = require('js/byTag').showByTag;
+var showByYear = require('js/byYear').showByYear;
+var showByAuthor = require('js/byAuthor').showByAuthor;
+
 
 function addBibEntry(row) {
 	var container = $('<li>')
@@ -36,9 +39,9 @@ exports.showView = function(data, title) {
 		
 		$('#bibList').append(flag);
 	} else {
-		$('#bibList').find('.docTag').each(function(i,elem){
-			$(elem).click(getTagClickCallback($(elem).text()));
-		});
+		$('#bibList').find('.docTag').click(showByTag);
+		$('#bibList').find('.docYear').click(showByYear);
+		$('#bibList').find('.docAuthor').click(showByAuthor);
 	}
 };
 

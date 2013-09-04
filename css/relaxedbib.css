@@ -2,8 +2,12 @@ h1,h2,h3,h4 {
 	font-family: sans-serif;
 }
 
+.jGrowl-notification {
+	font-weight: bold;
+}
+
 .error {
-	background:red;
+	background:red !important;
 }
 
 .dialogback {
@@ -100,10 +104,10 @@ h1,h2,h3,h4 {
 
 #bibList .docAuthor {
 	font-style: italic;
-	display: block;
+	margin-left: 1em;
 }
 
-#bibList .docTags li {
+#bibList .docTags li, #bibList .docAuthors li {
 	display: inline;
 }
 

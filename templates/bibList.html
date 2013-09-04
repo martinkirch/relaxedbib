@@ -6,14 +6,18 @@
 <a class="docExpand bigLeftButton" href="#{{doc._id}}">▶</a>
 <div class="docContainer">
 	<span class="docTitle">{{doc.bib.title}}</span>
-	<span class="docYear">{{doc.bib.year}}</span>
+	<date class="docYear"><a href="{{doc.bib.year}}">{{doc.bib.year}}</a></date>
 	{{#if doc.read_later}}
 		<a class="markAsRead" href="#">Mark as read</a>
 	{{/if}}
-	<span class="docAuthor">{{doc.bib.author}}</span>
+	<ul class="docAuthors">
+		{{#each doc.bib.author}}
+			<li><a class="docAuthor" href="#{{this}}">{{this}}</a></li>
+		{{/each}}
+	</span>
 	<ul class="docTags">Tagged 
 		{{#each doc.tags}}
-			<li><a class="docTag" href="#">{{this}}</a></li>
+			<li><a class="docTag" href="#{{this}}">{{this}}</a></li>
 		{{/each}}
 	</ul>
 	<div class="docDetails" style="display:none;">

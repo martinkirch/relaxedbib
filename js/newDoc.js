@@ -32,14 +32,18 @@ function upload(chain, baseDoc, closeAfterUploading) {
 }
 
 function save() {
-	var bibChain = parser.parse($('#newDocBib').val());
+	try {
+		var bibChain = parser.parse($('#newDocBib').val());
+	} catch(e) {
+		$.jGrowl(e + " - Check the bib syntax.", {group:'error'});
+	}
 	
 	var doc = {};
 	doc.created_at = new Date().toJSON();
 	doc.modified_at = doc.created_at;
 	doc.comments = $('#newDocComment').val().trim();
 	doc.tags = [];
-	
+
 	var tags = $("#newDocTags").val().trim().split(',');
 	for (var i in tags) {
 		var tag = tags[i].trim();
@@ -47,11 +51,11 @@ function save() {
 			doc.tags.push(tag);
 		}
 	}
-	
+
 	if ($('#newDocReadLater').is(':checked')) {
 		doc.read_later = true;
 	}
-	
+
 	upload(bibChain, doc, true);
 }
 

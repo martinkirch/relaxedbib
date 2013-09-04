@@ -5,6 +5,10 @@ var handlebars = require('handlebars');
 var bibList = require('js/bibList');
 
 exports.showByYear = function(year) {
+	if (year.target) {
+		year = $(year.target).text();
+	}
+	
 	var q = {
 		reduce: false,
 		key: JSON.stringify(year),

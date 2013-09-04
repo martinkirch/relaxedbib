@@ -33,6 +33,17 @@ exports.views = {
 			}
 		},
 		reduce: function(keys, values) { return null; }
+	},
+	
+	byAuthor: {
+		map: function(doc) {
+			if (doc.bib.author) {
+				doc.bib.author.forEach(function(author) {
+					emit(author, null);
+				});
+			}
+		},
+		reduce: function(keys, values) { return null; }
 	}
 };
 
