@@ -7,8 +7,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-find a jQuery tag-editing plug-in, for both tags and authors
-
 doc details display... and doc edition with a fancy contenteditable
 KISS: save doc as soon as an entry loses focus
 
@@ -25,4 +23,6 @@ note: kanso's db module doesn't like vhosts (nor URL rewriting)
 http://kan.so/packages/details/db
 http://kan.so/docs/Handlebars
 https://wiki.apache.org/couchdb/Complete_HTTP_API_Reference
+
+for tags editing, try https://github.com/xoxco/jQuery-Tags-Input
 

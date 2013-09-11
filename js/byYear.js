@@ -29,7 +29,7 @@ function showSelected() {
 };
 
 exports.start = function() {
-	db.getView(designDoc, 'byYear', {group:true}, function(err, data) {
+	db.getView(designDoc, 'byYear', {group:true, descending: true}, function(err, data) {
 		if(err) {
 			return alert(err);
 		} else {

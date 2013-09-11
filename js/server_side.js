@@ -18,9 +18,9 @@ exports.views = {
 	byTag: {
 		map: function(doc) {
 			if (doc.tags) {
-				doc.tags.forEach(function(tag) {
-					emit(tag, null);
-				});
+				for (var i in doc.tags) {
+					emit(doc.tags[i].toLowerCase(), null);
+				}
 			}
 		},
 		reduce: function(keys, values) { return null; }
@@ -38,9 +38,9 @@ exports.views = {
 	byAuthor: {
 		map: function(doc) {
 			if (doc.bib.author) {
-				doc.bib.author.forEach(function(author) {
-					emit(author, null);
-				});
+				for (var i in doc.bib.author) {
+					emit(doc.bib.author[i], null);
+				}
 			}
 		},
 		reduce: function(keys, values) { return null; }
