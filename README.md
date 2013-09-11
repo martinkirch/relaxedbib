@@ -7,13 +7,16 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-find by author, by year
+link "edit in Futon"
+
+find a jQuery tag-editing plug-in, for both tags and authors
+
+doc details display... and doc edition with a fancy contenteditable
+KISS: save doc as soon as an entry loses focus
 
 "Generate bibtex" button, per document
 and "Generate bibtex" button for all listed documents
 
-doc details display... and doc edition with a fancy contenteditable
-KISS: save doc as soon as an entry loses focus
 
 a validation doc that auto-updates "modified_at"
 

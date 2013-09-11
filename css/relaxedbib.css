@@ -67,6 +67,38 @@ h1,h2,h3,h4 {
 	padding: 1em;
 }
 
+#byAuthorSelector {
+	width: 8em;
+}
+
+#tagList {
+	padding: 0;
+	width: 10em;
+	text-align: center;
+	line-height: 1.5em;
+}
+
+#tagList li {
+	display: inline;
+	list-style: none;
+}
+
+#tagList li a {
+	color: white;
+	background: blue;
+	margin: 0;
+	padding: 0.1em 0.3em;
+	border-radius: 0.3em;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+#tagList li a:hover {
+	color: blue;
+	background: white;
+}
+
 #mainContainer {
 	padding: 1em;
 	overflow: auto;
@@ -85,8 +117,8 @@ h1,h2,h3,h4 {
 }
 
 #bibList > li {
-	margin-bottom: 1em;
-	padding: 0.3em;
+	margin: 0;
+	padding: 0.5em;
 }
 
 #bibList > li:nth-child(2n) {
