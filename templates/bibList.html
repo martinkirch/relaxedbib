@@ -1,9 +1,14 @@
-{{#if doc._attachments}}
-	<a class="dropZone bigLeftButton" target="_blank" href="../../{{doc._id}}/{{doc._id}}.pdf"><span>PDF</span></a>
-{{else}}
-	<a class="dropZone bigLeftButton" target="_blank" alt="Drop PDF file here !" title="Drop PDF file here !"><span>PDF</span></a>
-{{/if}}
-<a class="docExpand bigLeftButton" href="#{{doc._id}}">▶</a>
+<div class="entryButtons">
+	{{#if doc._attachments}}
+		<a class="dropZone" target="_blank" href="../../{{doc._id}}/{{doc._id}}.pdf"><span>PDF</span></a>
+	{{else}}
+		<a class="dropZone" target="_blank" alt="Drop PDF file here !" title="Drop PDF file here !"><span>PDF</span></a>
+	{{/if}}
+	<a target="_blank" class="editInFuton" href="/_utils/document.html?{{dbName}}/{{doc._id}}" alt="Edit in Futon" title="Edit in Futon">
+		✍
+	</a>
+	<a class="docExpand" href="#{{doc._id}}">+</a>
+</div>
 <div class="docContainer">
 	<span class="docTitle">{{doc.bib.title}}</span>
 	<date class="docYear"><a href="{{doc.bib.year}}">{{doc.bib.year}}</a></date>

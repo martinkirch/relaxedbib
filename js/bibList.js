@@ -1,10 +1,11 @@
 var handlebars = require('handlebars');
 var $ = require('jquery');
+var dbName = require('db').guessCurrent().db;
+
 var initMarkAsRead = require('js/readLater').markAsReadButton;
 var showByTag = require('js/byTag').showByTag;
 var showByYear = require('js/byYear').showByYear;
 var showByAuthor = require('js/byAuthor').showByAuthor;
-
 
 function addBibEntry(row) {
 	var container = $('<li>')
@@ -13,13 +14,14 @@ function addBibEntry(row) {
 		.data('doc', row.doc);
 	
 	$('#bibList').append(container);
-	container.html(handlebars.templates['bibList.html']({doc: row.doc}));
+	container.html(handlebars.templates['bibList.html']({dbName: dbName, doc: row.doc}));
 	
 	if (row.doc.read_later) {
 		initMarkAsRead(container.find('.markAsRead'), container);
 	}
 	
-	container.children('.docExpand').click(function(event) {
+	container.find('.docExpand').click(function(event) {
+		event.preventDefault();
 		container.find('.docDetails').toggle('fast');
 	});
 }

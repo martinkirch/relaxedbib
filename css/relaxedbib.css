@@ -154,20 +154,28 @@ h1,h2,h3,h4 {
 	overflow: auto;
 }
 
-#bibList .bigLeftButton {
+.entryButtons > a {
+	display: none;
+	float: right;
 	background-color: black;
 	color: white;
 	font-weight: bold;
 	font-family: sans-serif;
-	float: left;
 	padding: 0.5em;
 	border-radius: 0.5em;
 	margin-right: 0.5em;
 }
 
-#bibList .bigLeftButton:hover {
+.entryButtons > a:hover {
 	background: #729FCF;
-	cursor: pointer;
+}
+
+.bibEntry:hover .entryButtons > a {
+	display: inline;
+}
+
+.entryButtons > a.dropZone {
+	display: inline;
 }
 
 /* this is why "dropZone" elems have their text in a <span> ! */
@@ -180,7 +188,7 @@ a.draggedOver {
 	background-size: 2px 2px;
 }
 
-a.docExpand {
+a.docExpand, a.editInFuton {
 	text-decoration: none;
 }
 

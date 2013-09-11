@@ -7,8 +7,6 @@ This is a work in progress, placed on github for backup purpose only.
 
 ### TODO
 
-link "edit in Futon"
-
 find a jQuery tag-editing plug-in, for both tags and authors
 
 doc details display... and doc edition with a fancy contenteditable
