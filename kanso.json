@@ -19,7 +19,7 @@
 		"properties": null,
 		"db": null,
 		"jquery": null,
-		"handlebars": null,
+		"handlebars": ">=1.3.0",
 		"handlebars-helpers": null
 	}
 }

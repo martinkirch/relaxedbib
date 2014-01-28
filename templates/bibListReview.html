@@ -1,0 +1,8 @@
+<span class="docTitle">{{doc.bib.title}}</span>
+<date class="docYear"><a href="{{doc.bib.year}}">{{doc.bib.year}}</a></date>
+<ul class="docAuthors">
+	{{#each doc.bib.author}}
+		<li><a class="docAuthor" href="#{{this}}">{{this}}</a></li>
+	{{/each}}
+</ul>
+<span class="docComments">\cite{{braces doc._id}} {{doc.comments}}</span>
