@@ -1,5 +1,3 @@
-<pre>@{{doc.type}}{{braces doc._id}},
-	{{#each doc}}
-		{{@key}} = {{bibfield this}},
-	{{/each}}
+<pre>@{{doc.type}}{{braces doc._id}},{{#each doc.bib}}
+		{{@key}} = {{bibfield this}},{{/each}}
 }</pre>
