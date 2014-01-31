@@ -9,7 +9,14 @@ exports.start = function() {
 	require('js/fileDropper').start();
 
 	var handlebars = require('handlebars');
-	
+
+	/**
+	 * Use with triple braces !
+	 */
+	handlebars.registerHelper('br', function(text) {
+		return (new handlebars.SafeString(text)).toString().replace(/\n/g,"<br>\n");
+	});
+
 	handlebars.registerHelper('braces', function(text) {
 		return '{'+bibSafeString(text)+'}';
 	});
