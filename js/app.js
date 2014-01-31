@@ -17,8 +17,8 @@ exports.start = function() {
 		return (new handlebars.SafeString(text)).toString().replace(/\n/g,"<br>\n");
 	});
 
-	handlebars.registerHelper('braces', function(text) {
-		return '{'+bibSafeString(text)+'}';
+	handlebars.registerHelper('lbrace', function(text) {
+		return '{'+bibSafeString(text);
 	});
 
 	function bibSafeString(s) {
