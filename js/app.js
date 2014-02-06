@@ -21,6 +21,10 @@ exports.start = function() {
 		return '{'+bibSafeString(text);
 	});
 
+	handlebars.registerHelper('braces', function(text) {
+		return '{'+bibSafeString(text)+'}';
+	});
+
 	function bibSafeString(s) {
 		return new handlebars.SafeString(s);
 	};
